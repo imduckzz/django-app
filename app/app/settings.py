@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s0cm29c@btaeu*_c!7a1qq+7spu)%ags&shd#f*o-48(7x@s#%'
+SECRET_KEY = 'django-insecure-p@inj3#9p%@u0p89&tb2+q2^pq71y(9q9a-uanr56--be)4h4a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'academics.apps.AcademicsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +78,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       # 'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE':   'django.db.backends.postgresql_psycopg2',
+       'NAME':     config('DB_NAME'),
+       'USER':     config('DB_USER'),
+       'PASSWORD': config('DB_PASSWORD'),
+       'HOST':     config('DB_HOST'),
+       'PORT':     config('DB_PORT'),
     }
 }
 
