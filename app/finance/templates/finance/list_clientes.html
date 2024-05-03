@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Usamos una fuente genérica */
+            background-color: #f4f4f4; /* Fondo gris claro */
+            color: #333; /* Texto gris oscuro */
+            margin: 0; /* Eliminamos el margen predeterminado */
+            padding: 0; /* Eliminamos el relleno predeterminado */
+        }
+        .container {
+            max-width: 800px; /* Ancho máximo del contenido */
+            margin: auto; /* Centramos el contenido horizontalmente */
+            padding: 20px; /* Añadimos un relleno alrededor del contenido */
+        }
+        h1 {
+            text-align: center; /* Centramos el título */
+        }
+        ul {
+            list-style-type: none; /* Quitamos los estilos de lista predeterminados */
+            padding: 0; /* Eliminamos el relleno predeterminado de la lista */
+        }
+        li {
+            background-color: #fff; /* Fondo blanco para cada elemento */
+            margin-bottom: 10px; /* Espacio entre elementos */
+            padding: 20px; /* Espacio interno dentro de cada elemento */
+            border-radius: 5px; /* Añadimos esquinas redondeadas */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        li:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada al pasar el mouse */
+        }
+        strong {
+            color: #555; /* Texto gris más oscuro para etiquetas fuertes */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+        <ul> 
+            {% for cliente in clientes %}
+            <li> 
+                <strong>Nombre:</strong> {{ cliente.nombre }} <br>
+                <strong>Apellido:</strong> {{ cliente.apellido }} <br>
+                <strong>Correo electrónico:</strong> {{ cliente.email }} <br>
+                <strong>Celular:</strong> {{ cliente.celular }} <br>
+                <!-- Puedes agregar más campos aquí si lo necesitas -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
